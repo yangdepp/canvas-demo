@@ -38,6 +38,7 @@ body {
   width: 1.5em;
   transition: all .3s;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .actions svg.active {

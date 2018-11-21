@@ -5,30 +5,56 @@ autoSetCanvasSize(canvas);
 listenToUser(canvas);
 
 var eraserEnabled = false;
-pen.onclick = function(){
+pen.onclick = function () {
   eraserEnabled = false;
   pen.classList.add('active');
   eraser.classList.remove('active');
+  clear.classList.remove('active');
+  save.classList.remove('active');
 }
-eraser.onclick = function(){
+eraser.onclick = function () {
   eraserEnabled = true;
   eraser.classList.add('active');
   pen.classList.remove('active');
+  clear.classList.remove('active');
+  save.classList.remove('active');
 }
-red.onclick = function(){
+clear.onclick = function () {
+  eraserEnabled = true;
+  context.clearRect(0, 0, canvas.width, canvas.height)
+  clear.classList.add('active');
+  pen.classList.remove('active');
+  eraser.classList.remove('active');
+  save.classList.remove('active');
+}
+save.onclick = function () {
+  save.classList.add('active')
+  clear.classList.remove('active');
+  pen.classList.remove('active');
+  eraser.classList.remove('active');
+  url = canvas.toDataURL('img/jpg');
+  var a = document.createElement('a');
+  document.body.appendChild(a);
+  a.href = url;
+  a.download = '画板';
+  a.click();
+}
+
+
+red.onclick = function () {
   context.fillStyle = 'red';
   context.strokeStyle = 'red';
   red.classList.add('active');
   green.classList.remove('active');
   blue.classList.remove('active');
 }
-blue.onclick = function(){
+blue.onclick = function () {
   context.strokeStyle = 'blue';
   blue.classList.add('active');
   green.classList.remove('active');
   red.classList.remove('active');
 }
-green.onclick = function(){
+green.onclick = function () {
   context.strokeStyle = 'green';
   green.classList.add('active');
   blue.classList.remove('active');
