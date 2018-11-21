@@ -32,11 +32,12 @@ save.onclick = function () {
   clear.classList.remove('active');
   pen.classList.remove('active');
   eraser.classList.remove('active');
-  url = canvas.toDataURL('img/jpg');
+  var url = canvas.toDataURL("img/png");
   var a = document.createElement('a');
   document.body.appendChild(a);
   a.href = url;
   a.download = '画板';
+  a.target - '_blank'
   a.click();
 }
 
